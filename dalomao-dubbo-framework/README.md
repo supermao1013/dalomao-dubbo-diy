@@ -1,5 +1,4 @@
 # 手写dubbo简易框架
-## dalomao-dubbo-framework
 手写简易dubbo框架，声明一点：该框架只是用来学习用，加深对dubbo框架的理解
 
 ## 涉及知识点
