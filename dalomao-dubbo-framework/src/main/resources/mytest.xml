@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dalomao="http://www.dalomao.com/schema/dubbo"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+       http://www.dalomao.com/schema/dubbo
+	   http://www.dalomao.com/schema/dubbo.xsd"
+       default-lazy-init="true">
+
+
+    <dalomao:registry  protocol="redis" address="127.0.0.1:6379"></dalomao:registry>
+    <dalomao:protocol  name="rmi" port="27017" host="127.0.0.1"></dalomao:protocol>
+
+    <!-- service测试 -->
+    <!--<bean id="userServiceImpl" class="com.dalomao.dubbo.test.TestServiceImpl"></bean>-->
+    <!--<dalomao:service  ref="userServiceImpl1" interface="com.dalomao.dubbo.test.TestService" protocol="rmi"></dalomao:service>-->
+    <!--<dalomao:service  ref="userServiceImpl2" interface="com.dalomao.dubbo.test.TestService" protocol="netty"></dalomao:service>-->
+    <!--<dalomao:service  ref="userServiceImpl3" interface="com.dalomao.dubbo.test.TestService" protocol="http"></dalomao:service>-->
+
+    <!-- web测试 -->
+    <dalomao:reference id="userServiceImpl1" interface="com.dalomao.dubbo.test.TestService" protocol="http" loadbalance="random"></dalomao:reference>
+    <dalomao:reference id="userServiceImpl2" interface="com.dalomao.dubbo.test.TestService" protocol="http" loadbalance="random"></dalomao:reference>
+</beans>

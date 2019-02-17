@@ -1,0 +1,48 @@
+<xsd:schema xmlns="http://www.dalomao.com/schema/dubbo" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.dalomao.com/schema/dubbo"
+            elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <!-- 注册中心 -->
+    <xsd:element name="registry">
+        <xsd:complexType>
+            <!-- 注册中心类型 -->
+            <xsd:attribute name="protocol" type="xsd:string"></xsd:attribute>
+            <!-- 注册中心的地址:端口 -->
+            <xsd:attribute name="address" type="xsd:string"></xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- 通信协议 -->
+    <xsd:element name="protocol">
+        <xsd:complexType>
+            <!-- 协议名称 -->
+            <xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+            <!-- 注册中心地址 -->
+            <xsd:attribute name="host" type="xsd:string"></xsd:attribute>
+            <!-- 协议端口 -->
+            <xsd:attribute name="port" type="xsd:string"></xsd:attribute>
+            <xsd:attribute name="contextpath" type="xsd:string"></xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- service 服务端使用-->
+    <xsd:element name="service">
+        <xsd:complexType>
+            <xsd:attribute name="interface" type="xsd:string"></xsd:attribute>
+            <xsd:attribute name="ref" type="xsd:string"></xsd:attribute>
+            <xsd:attribute name="protocol" type="xsd:string"></xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- reference 消费端使用 -->
+    <xsd:element name="reference">
+        <xsd:complexType>
+            <xsd:attribute name="id" type="xsd:string"></xsd:attribute>
+            <xsd:attribute name="interface" type="xsd:string"></xsd:attribute>
+            <xsd:attribute name="protocol" type="xsd:string"></xsd:attribute>
+            <xsd:attribute name="loadbalance" type="xsd:string"></xsd:attribute>
+            <xsd:attribute name="retries" type="xsd:string"></xsd:attribute>
+            <xsd:attribute name="cluster" type="xsd:string"></xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
